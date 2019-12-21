@@ -28,7 +28,7 @@ const Login = props => {
       .post("/auth/login", signInData)
       .then(res => {
         console.log(res);
-        localStorage.setItem("token", res.data.payload);
+        localStorage.setItem("token", res.data.token);
         setUser(signInData.username);
         setIsLoading(false);
         setSignInData(initialLoginState);
