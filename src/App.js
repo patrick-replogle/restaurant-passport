@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/dashboard" component={MainPage} />
+          <PrivateRoute exact path="/dashboard" component={MainPage} />
           <Route exact path="/" component={WelcomePage} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />

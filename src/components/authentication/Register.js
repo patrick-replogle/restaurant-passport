@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { TextField } from "@material-ui/core";
 
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 const initialUser = {
   username: "",
   password: "",
-  name: "",
+  first_name: "",
+  last_name: "",
   city: "",
   email: ""
 };
@@ -26,7 +26,7 @@ const Register = props => {
     setisLoading(true);
     setError("");
     axiosWithAuth()
-      .post("/register", registerData)
+      .post("/auth/register", registerData)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.payload);
@@ -36,7 +36,7 @@ const Register = props => {
       })
       .catch(err => {
         setisLoading(false);
-        console.log("Error registering: ", err);
+        console.log(err);
         setError(err.message);
       });
   };
@@ -72,9 +72,18 @@ const Register = props => {
           <input
             onChange={handleChange}
             type="text"
-            name="name"
-            placeholder="name"
-            value={registerData.name}
+            name="first_name"
+            placeholder="first name"
+            value={registerData.first_name}
+            required
+          />
+
+          <input
+            onChange={handleChange}
+            type="text"
+            name="last_name"
+            placeholder="last name"
+            value={registerData.last_name}
             required
           />
 
