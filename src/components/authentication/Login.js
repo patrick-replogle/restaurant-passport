@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { userContext } from "../../contexts/userContext";
 
 const initialLoginState = {
   username: "",
@@ -9,6 +10,7 @@ const initialLoginState = {
 };
 
 const Login = props => {
+  const { setUser } = useContext(userContext);
   const [signInData, setSignInData] = useState(initialLoginState);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -23,9 +25,11 @@ const Login = props => {
     setIsLoading(true);
     setError("");
     axiosWithAuth()
-      .post("/login", signInData)
+      .post("/auth/login", signInData)
       .then(res => {
+        console.log(res);
         localStorage.setItem("token", res.data.payload);
+        setUser(signInData.username);
         setIsLoading(false);
         setSignInData(initialLoginState);
         props.history.push("/dashboard");

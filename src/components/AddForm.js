@@ -1,4 +1,5 @@
-import React, { useState } from "React";
+import React, { useState, useContext } from "react";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { passportContext } from "../contexts/passportContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
@@ -8,7 +9,7 @@ const initialFormState = {
   date: "",
   city: "",
   notes: "",
-  rating: null,
+  rating: 1,
   stamped: false
 };
 
@@ -23,8 +24,19 @@ const AddForm = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleRatingChange = e => {
+    e.preventDefault();
+    setFormData({ ...formData, rating: Number(e.target.value) });
+  };
+
+  const handleStampedChange = e => {
+    e.preventDefault();
+    setFormData({ ...formData, stamped: !formData.stamped });
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(formData);
     setIsLoading(true);
     setError("");
     axiosWithAuth()
@@ -32,6 +44,7 @@ const AddForm = props => {
       .then(res => {
         console.log(res.data);
         setIsLoading(false);
+        setFormData(initialFormState);
         props.history.push("/dashboard");
       })
       .catch(err => {
@@ -43,8 +56,8 @@ const AddForm = props => {
 
   if (isLoading) {
     return (
-      <div>
-        <h2>...loading</h2>
+      <div className="loading">
+        <CircularProgress color="secondary" />
       </div>
     );
   } else {
@@ -55,55 +68,70 @@ const AddForm = props => {
           <input
             type="text"
             name="name"
-            id="name"
+            id="addFromName"
             onChange={handleChange}
             value={formData.name}
             placeholder="name"
             required
           />
 
-          <label htmlFor="name">Name</label>
+          <label htmlFor="date">Date</label>
           <input
-            type="text"
-            name="name"
-            id="name"
+            type="date"
+            name="date"
+            id="addFormDate"
             onChange={handleChange}
-            value={formData.name}
-            placeholder="name"
+            value={formData.date}
             required
           />
 
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">City</label>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="city"
+            id="addFormCity"
             onChange={handleChange}
-            value={formData.name}
-            placeholder="name"
+            value={formData.city}
+            placeholder="city"
             required
           />
 
-          <label htmlFor="name">Name</label>
+          <label htmlFor="addFormNotes">Notes</label>
           <input
-            type="text"
-            name="name"
-            id="name"
+            type="textarea"
+            name="notes"
+            id="addFormNotes"
             onChange={handleChange}
-            value={formData.name}
-            placeholder="name"
+            value={formData.notes}
+            placeholder="notes"
             required
           />
 
-          <label htmlFor="name">Name</label>
+          <label htmlFor="addFormRating">Rating</label>
+          <select
+            type="select"
+            name="rating"
+            id="addFormRating"
+            onChange={handleRatingChange}
+            value={formData.rating}
+            placeholder="rating"
+          >
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
+
+          <label htmlFor="addFormStamped">
+            Have You Visited This Restaurant?
+          </label>
           <input
-            type="text"
-            name="name"
-            id="name"
-            onChange={handleChange}
-            value={formData.name}
-            placeholder="name"
-            required
+            type="checkbox"
+            name="stamped"
+            id="addFormStamped"
+            onChange={handleStampedChange}
+            value={formData.stamped}
           />
 
           <button>Submit</button>
