@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { passportContext } from "../contexts/passportContext";
 
 const PassportProvider = ({ children }) => {
-  const [restaurantList, setRestraurantList] = useState([]);
+  const [restaurantList, setRestaurantList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [itemToEdit, setItemToEdit] = useState({});
 
@@ -11,7 +11,7 @@ const PassportProvider = ({ children }) => {
     <passportContext.Provider
       value={{
         restaurantList,
-        setRestraurantList,
+        setRestaurantList,
         isEditing,
         setIsEditing,
         itemToEdit,

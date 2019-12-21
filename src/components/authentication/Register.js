@@ -29,7 +29,6 @@ const Register = props => {
       .post("/auth/register", registerData)
       .then(res => {
         console.log(res);
-        localStorage.setItem("token", res.data.payload);
         setisLoading(false);
         setRegisterData(initialUser);
         props.history.push("/login");
