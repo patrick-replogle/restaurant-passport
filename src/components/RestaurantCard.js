@@ -5,7 +5,6 @@ import { passportContext } from "../contexts/passportContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const RestaurantCard = props => {
-  console.log(props);
   const {
     setIsEditing,
     setItemToEdit,
@@ -46,7 +45,11 @@ const RestaurantCard = props => {
   };
 
   return (
-    <div className="restaurantCard">
+    <div
+      className={`restaurantCard${
+        props.restaurant.restaurant_stamped ? " stamped" : ""
+      }`}
+    >
       <h2>{props.restaurant.restaurant_name}</h2>
       <p>{props.restaurant.restaurant_address}</p>
       <p>{props.restaurant.restaurant_city}</p>

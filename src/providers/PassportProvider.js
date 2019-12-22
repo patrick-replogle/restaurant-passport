@@ -6,6 +6,7 @@ const PassportProvider = ({ children }) => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [itemToEdit, setItemToEdit] = useState({});
+  const [filteredList, setFilteredList] = useState([]);
 
   return (
     <passportContext.Provider
@@ -15,7 +16,9 @@ const PassportProvider = ({ children }) => {
         isEditing,
         setIsEditing,
         itemToEdit,
-        setItemToEdit
+        setItemToEdit,
+        filteredList,
+        setFilteredList
       }}
     >
       {children}
