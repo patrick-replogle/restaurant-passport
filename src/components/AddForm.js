@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { withRouter } from "react-router-dom";
 
 import { passportContext } from "../contexts/passportContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
@@ -17,33 +18,18 @@ const initialFormState = {
 };
 
 const AddForm = props => {
-  const {
-    restaurantList,
-    setRestaurantList,
-    isEditing,
-    setIsEditing,
-    itemToEdit,
-    setItemToEdit
-  } = useContext(passportContext);
+  const { isEditing, setIsEditing, itemToEdit, setItemToEdit } = useContext(
+    passportContext
+  );
   const [formData, setFormData] = useState(initialFormState);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
     if (isEditing) {
-      setFormData({
-        restaurant_name: itemToEdit.restaurant_name,
-        restaurant_address: itemToEdit.restaurant_address,
-        restaurant_city: itemToEdit.restaurant_city,
-        restaurant_zip: itemToEdit.restaurant_zip,
-        restaurant_phone_number: itemToEdit.restaurant_phone_number,
-        restaurant_website: itemToEdit.restaurant_website,
-        restaurant_rating: itemToEdit.restaurant_rating,
-        restaurant_notes: itemToEdit.restaurant_notes,
-        restaurant_stamped: itemToEdit.restaurant_stamped
-      });
+      setFormData({ ...itemToEdit });
     }
-  }, [isEditing]);
+  }, [isEditing, itemToEdit]);
 
   const handleChange = e => {
     e.preventDefault();
@@ -226,4 +212,4 @@ const AddForm = props => {
   }
 };
 
-export default AddForm;
+export default withRouter(AddForm);

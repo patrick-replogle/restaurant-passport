@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import Register from "./components/authentication/Register";
@@ -21,11 +16,11 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <PrivateRoute exact path="/dashboard" component={MainPage} />
-          <Route exact path="/add_form" component={AddForm} />
+          <PrivateRoute path="/dashboard" component={MainPage} />
+          <PrivateRoute path="/add_form" component={AddForm} />
           <Route exact path="/" component={WelcomePage} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Router>
     </div>

@@ -29,7 +29,7 @@ const Login = props => {
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
-        setUser(signInData.username);
+        setUser(res.data.message);
         setIsLoading(false);
         setSignInData(initialLoginState);
         props.history.push("/dashboard");
