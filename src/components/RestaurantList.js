@@ -2,23 +2,26 @@ import React, { useEffect } from "react";
 
 import RestaurantCard from "./RestaurantCard";
 
-const Restaurantlist = props => {
-  console.log(props.search);
+const Restaurantlist = ({
+  search,
+  restaurantList,
+  filteredList,
+  setFilteredList
+}) => {
   useEffect(() => {
-    props.setFilteredList(
-      props.filteredList.filter(name =>
-        name.restaurant_name.toLowerCase().includes(props.search.toLowerCase())
+    setFilteredList(
+      restaurantList.filter(name =>
+        name.restaurant_name.toLowerCase().includes(search.toLowerCase())
       )
     );
-  }, [props.search]);
+  }, [search, setFilteredList, restaurantList]);
 
-  const myArray = props.filteredList.length
-    ? props.filteredList
-    : props.restaurantList;
+  const dynamicArray = filteredList.length ? filteredList : restaurantList;
 
   return (
     <div className="restarauntListContainer">
-      {myArray.map(restaurant => {
+      {dynamicArray.length < 1 && <h2>Add Some Restaurants!</h2>}
+      {dynamicArray.map(restaurant => {
         return <RestaurantCard restaurant={restaurant} key={restaurant.id} />;
       })}
     </div>

@@ -4,17 +4,13 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { userContext } from "../contexts/userContext";
 import { passportContext } from "../contexts/passportContext";
 import RestaurantList from "./RestaurantList";
-import Header from "./Header";
+import MainHeader from "./headers/MainHeader";
 
 const MainPage = props => {
   const { user } = useContext(userContext);
-  const {
-    restaurantList,
-    setRestaurantList,
-    setFilteredList,
-    filteredList
-  } = useContext(passportContext);
+  const { restaurantList, setRestaurantList } = useContext(passportContext);
   const [search, setSearch] = useState("");
+  const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
     axiosWithAuth()
@@ -27,7 +23,7 @@ const MainPage = props => {
 
   return (
     <div>
-      <Header search={search} setSearch={setSearch} />
+      <MainHeader search={search} setSearch={setSearch} />
       <p>{user}</p>
       <RestaurantList
         restaurantList={restaurantList}
