@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import RegisterHeader from "../headers/RegisterHeader";
 
 const initialUser = {
   username: "",
@@ -48,64 +49,103 @@ const Register = props => {
     );
   } else {
     return (
-      <div>
+      <div className="registerContainer">
+        <RegisterHeader />
+        <h2>Register Below</h2>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username</label>
           <input
             onChange={handleChange}
             type="text"
+            id="username"
             name="username"
             placeholder="username"
             value={registerData.username}
             required
           />
 
+          <label htmlFor="password">Password</label>
           <input
             onChange={handleChange}
             type="password"
+            id="password"
             name="password"
             placeholder="password"
             value={registerData.password}
             required
           />
 
+          <label htmlFor="firstName">First Name</label>
           <input
             onChange={handleChange}
             type="text"
+            id="firstName"
             name="first_name"
             placeholder="first name"
             value={registerData.first_name}
             required
           />
 
+          <label htmlFor="lastName">Last Name</label>
           <input
             onChange={handleChange}
             type="text"
             name="last_name"
+            id="lastName"
             placeholder="last name"
             value={registerData.last_name}
             required
           />
 
+          <label htmlFor="city">City</label>
           <input
             onChange={handleChange}
             type="text"
             name="city"
+            id="city"
             placeholder="city"
             value={registerData.city}
             required
           />
 
+          <label htmlFor="email">Email</label>
           <input
             onChange={handleChange}
             type="email"
             name="email"
+            id="email"
             placeholder="email"
             value={registerData.email}
             required
           />
+          <div className="termsOfServiceDiv">
+            <p>
+              <span>
+                By signing up, you agree to Restaurant Passports's{" "}
+                <font color="FF4081">
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    Terms of Service
+                  </a>
+                  ,{" "}
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    Privacy Policy
+                  </a>{" "}
+                  <font color="757575">and</font>{" "}
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    Cookie Policy
+                  </a>
+                </font>
+              </span>
+            </p>
+          </div>
 
-          <button>Submit</button>
-          <button onClick={() => setRegisterData(initialUser)}>Reset</button>
+          <button className="loginBtn">Submit</button>
+          <button
+            className="loginBtn"
+            onClick={() => setRegisterData(initialUser)}
+          >
+            Reset
+          </button>
         </form>
         {error && <div className="errorMessage">{error}</div>}
       </div>

@@ -7,14 +7,12 @@ import Login from "./components/authentication/Login";
 import WelcomePage from "./components/authentication/WelcomePage";
 import MainPage from "./components/MainPage";
 import PrivateRoute from "./components/PrivateRoute";
-import Nav from "./components/Nav";
 import AddForm from "./components/AddForm";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Nav />
         <Switch>
           <PrivateRoute path="/dashboard" component={MainPage} />
           <PrivateRoute path="/add_form" component={AddForm} />

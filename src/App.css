@@ -1,20 +1,223 @@
+html {
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
   margin: 0 auto;
   max-width: 1200px;
 }
 
+.header {
+  align-items: center;
+  color: #fff;
+  background-color: #313843;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  padding: 0 3%;
+  width: 100%;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
+}
+
+.header h1 {
+  font-size: 2.4rem;
+}
+
+.header a {
+  color: #fff;
+}
+
+.welcomePageContainer h1 {
+  text-align: center;
+  font-size: 4.1rem;
+}
+
+.welcomePageBtn {
+  font-size: 2rem;
+  font-weight: bold;
+  background: #c41200;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding: 15px 3px;
+  width: 400px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.welcomePageBtn:hover {
+  opacity: 0.7;
+}
+
+.welcomePageContainer p {
+  margin-top: 20px;
+}
+.welcomePageBtn2 {
+  font-size: 2rem;
+  font-weight: bold;
+  background: #c41200;
+  color: white;
+  border-radius: 8px;
+  padding: 15px 3px;
+  width: 400px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.welcomePageBtn2:hover {
+  opacity: 0.7;
+}
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerContainer h2 {
+  font-size: 2.5rem;
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 1.6rem;
+  display: block;
+}
+
+#firstName,
+#lastName,
+#username,
+#password,
+#city,
+#email {
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  width: 380px;
+}
+
+.signinContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.6rem;
+  margin-bottom: px;
+}
+
+.termsOfServiceDiv {
+  width: 380px;
+}
+
+.registerBtn {
+  font-size: 1.8rem;
+  background: #c41200;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.registerBtn:hover {
+  opacity: 0.7;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer h2 {
+  font-size: 2.5rem;
+}
+
+.loginContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginBtn {
+  font-size: 2rem;
+  font-weight: bold;
+  background: #c41200;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px 20px;
+  width: 100%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  opacity: 0.7;
+}
+
 .stamped {
   background: red;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header .addBtn {
+  background: black;
+  color: white;
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
 }
 
 .search {
   background: black;
   color: white;
   width: 300px;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.search input {
+  background: black;
+  color: white;
+  border: none;
+}
+
+.restarauntListContainer {
+  width: 100%;
+}
+
+.restaurantCard {
+  width: 40%;
+  border-radius: 6px;
+  border: 1px solid black;
 }

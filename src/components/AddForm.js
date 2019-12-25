@@ -27,7 +27,7 @@ const AddForm = props => {
 
   useEffect(() => {
     if (isEditing) {
-      setFormData({ ...itemToEdit });
+      setFormData({ ...itemToEdit, restaurant_stamped: false });
     }
   }, [isEditing, itemToEdit]);
 

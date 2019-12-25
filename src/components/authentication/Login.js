@@ -3,6 +3,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { userContext } from "../../contexts/userContext";
+import LoginHeader from "../headers/LoginHeader";
 
 const initialLoginState = {
   username: "",
@@ -49,19 +50,25 @@ const Login = props => {
     );
   } else {
     return (
-      <div>
+      <div className="loginContainer">
+        <LoginHeader />
+        <h2>Login Below</h2>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username</label>
           <input
             onChange={handleChange}
             name="username"
+            id="username"
             type="text"
             placeholder="username"
             value={signInData.username}
             required
           />
 
+          <label htmlFor="password">Password</label>
           <input
             onChange={handleChange}
+            id="password"
             name="password"
             type="password"
             placeholder="password"
@@ -69,7 +76,7 @@ const Login = props => {
             required
           />
 
-          <button>Submit</button>
+          <button className="loginBtn">Submit</button>
         </form>
         {error && (
           <div className="errorMessage">username or password not valid</div>
