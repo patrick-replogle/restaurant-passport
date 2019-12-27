@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import RegisterHeader from "../headers/RegisterHeader";
+import AuthenticationHeader from "../headers/AuthenticationHeader";
 
 const initialUser = {
   username: "",
@@ -50,7 +50,7 @@ const Register = props => {
   } else {
     return (
       <div className="registerContainer">
-        <RegisterHeader />
+        <AuthenticationHeader />
         <h2>Register Below</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>

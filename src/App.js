@@ -5,7 +5,7 @@ import "./App.css";
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
 import WelcomePage from "./components/authentication/WelcomePage";
-import MainPage from "./components/MainPage";
+import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import AddForm from "./components/AddForm";
 
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <PrivateRoute path="/dashboard" component={MainPage} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/add_form" component={AddForm} />
           <Route exact path="/" component={WelcomePage} />
           <Route path="/register" component={Register} />

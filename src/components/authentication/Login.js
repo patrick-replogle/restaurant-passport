@@ -3,7 +3,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { userContext } from "../../contexts/userContext";
-import LoginHeader from "../headers/LoginHeader";
+import AuthenticationHeader from "../headers/AuthenticationHeader";
 
 const initialLoginState = {
   username: "",
@@ -51,7 +51,7 @@ const Login = props => {
   } else {
     return (
       <div className="loginContainer">
-        <LoginHeader />
+        <AuthenticationHeader />
         <h2>Login Below</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
