@@ -30,11 +30,32 @@ html {
 
 .header a {
   color: #fff;
+  margin-right: 30px;
+}
+
+/* welcome page styles */
+.welcomePageMain {
+  background: url("img/table.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .welcomePageContainer h1 {
   text-align: center;
   font-size: 4.1rem;
+}
+
+.welcomePageContainer h3 {
+  font-size: 2rem;
 }
 
 .welcomePageBtn {
@@ -162,8 +183,8 @@ a {
   font-weight: bold;
   background: #c41200;
   color: white;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 8px;
   text-align: center;
   padding: 10px 20px;
@@ -188,7 +209,7 @@ a {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .header .addBtn {
@@ -213,11 +234,93 @@ a {
 }
 
 .restarauntListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  /* background: url("img/map.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; */
 }
 
+/* RestaurantCard styles */
+
 .restaurantCard {
-  width: 40%;
+  width: 45%;
   border-radius: 6px;
   border: 1px solid black;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  background: white;
+}
+
+.restaurantCard h2 {
+  font-size: 3rem;
+}
+
+.restaurantCard p {
+  font-size: 2rem;
+}
+
+.restaurantCard button {
+  margin-bottom: 30px;
+}
+
+/*Dashboard Styles */
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* add form styles */
+
+.addFormContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.addformContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addFormContainer form input {
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  width: 380px;
+}
+
+.addFormContainer form label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 1.6rem;
+  display: block;
+  text-align: left;
+}
+
+.ratingDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* popup form */
+
+.popUpForm {
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; */
 }

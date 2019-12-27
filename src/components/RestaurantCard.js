@@ -46,18 +46,19 @@ const RestaurantCard = props => {
 
   return (
     <div
-      className={`restaurantCard${
-        props.restaurant.restaurant_stamped ? " stamped" : ""
-      }`}
+      // className={`restaurantCard${
+      //   props.restaurant.restaurant_stamped ? " stamped" : ""
+      // }`}
+      className="restaurantCard"
     >
       <h2>{props.restaurant.restaurant_name}</h2>
       <p>{props.restaurant.restaurant_address}</p>
       <p>{props.restaurant.restaurant_city}</p>
       <p>{props.restaurant.restaurant_zip}</p>
-      <p>{props.restaurant.restaurant_phone_number}</p>
-      <p>{props.restaurant.restaurant_website}</p>
-      <p>{props.restaurant.restaurant_rating}</p>
-      <p>{props.restaurant.restaurant_notes}</p>
+      <p>Tele: {props.restaurant.restaurant_phone_number}</p>
+      <p>Website: {props.restaurant.restaurant_website}</p>
+      <p>Rating: {props.restaurant.restaurant_rating}</p>
+      <p>Notes: {props.restaurant.restaurant_notes}</p>
       <button onClick={deleteRestaurant}>Delete</button>
       <button onClick={handleEdit}>Edit</button>
     </div>

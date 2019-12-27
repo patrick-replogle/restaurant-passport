@@ -73,7 +73,6 @@ const AddForm = props => {
       axiosWithAuth()
         .post("/restaurants", formData)
         .then(res => {
-          console.log(res.data);
           setIsLoading(false);
           setFormData(initialFormState);
           props.history.push("/dashboard");
@@ -95,8 +94,9 @@ const AddForm = props => {
   } else {
     return (
       <div className="addFormContainer">
-        <form className="addForm" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name</label>
+        <h2>Add or Edit a Passport Entry</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="addFormName">Name</label>
           <input
             type="text"
             name="restaurant_name"
@@ -107,7 +107,7 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="name">Address</label>
+          <label htmlFor="addFormAddress">Address</label>
           <input
             type="text"
             name="restaurant_address"
@@ -118,7 +118,7 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="name">City</label>
+          <label htmlFor="addFormCity">City</label>
           <input
             type="text"
             name="restaurant_city"
@@ -129,7 +129,7 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="name">Zip Code</label>
+          <label htmlFor="addFormZip">Zip Code</label>
           <input
             type="text"
             name="restaurant_zip"
@@ -140,7 +140,7 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="name">Phone #</label>
+          <label htmlFor="addFormPhone">Phone #</label>
           <input
             type="tel"
             name="restaurant_phone_number"
@@ -151,7 +151,7 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="name">Website</label>
+          <label htmlFor="addFormWebsite">Website</label>
           <input
             type="text"
             name="restaurant_website"
@@ -162,22 +162,23 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="addFormRating">Rating</label>
-          <select
-            type="select"
-            name="restaurant_rating"
-            id="addFormRating"
-            onChange={handleRatingChange}
-            value={formData.restaurant_rating}
-            placeholder="rating"
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-
+          <div className="ratingDiv">
+            <label htmlFor="addFormRating">Rating</label>
+            <select
+              type="select"
+              name="restaurant_rating"
+              id="addFormRating"
+              onChange={handleRatingChange}
+              value={formData.restaurant_rating}
+              placeholder="rating"
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </div>
           <label htmlFor="addFormNotes">Notes</label>
           <input
             type="textarea"
@@ -189,20 +190,36 @@ const AddForm = props => {
             required
           />
 
-          <label htmlFor="addFormStamped">
-            Have You Visited This Restaurant?
-          </label>
-          <input
-            type="checkbox"
-            name="restaurant_stamped"
-            id="addFormStamped"
-            onChange={handleStampedChange}
-            value={formData.restaurant_stamped}
-          />
-
+          <div className="ratingDiv">
+            <label htmlFor="addFormStamped">
+              Have You Visited This Restaurant?
+            </label>
+            <input
+              type="checkbox"
+              name="restaurant_stamped"
+              id="addFormStamped"
+              onChange={handleStampedChange}
+              value={formData.restaurant_stamped}
+            />
+          </div>
           <button>Submit</button>
-          <button onClick={() => setFormData(initialFormState)}>Reset </button>
-          <button onClick={() => props.history.push("/dashboard")}>
+          <button
+            onClick={() => {
+              setFormData(initialFormState);
+              setIsEditing(false);
+              setItemToEdit({});
+            }}
+          >
+            Reset
+          </button>
+          <button
+            onClick={() => {
+              setFormData(initialFormState);
+              setIsEditing(false);
+              setItemToEdit({});
+              props.history.push("/dashboard");
+            }}
+          >
             Cancel
           </button>
         </form>

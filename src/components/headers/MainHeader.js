@@ -11,7 +11,7 @@ const MainHeader = props => {
   return (
     <div className="headerContainer">
       <div className="header">
-        <h2>Restaurant Passport 2.0</h2>
+        <h1>Restaurant Passport 2.0</h1>
         <button
           className="addBtn"
           onClick={() => props.history.push("/add_form")}
