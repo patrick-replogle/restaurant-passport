@@ -1,43 +1,30 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
 const MainHeader = props => {
-  const [showSearch, setShowSearch] = useState(false);
-
   const onSearchChange = e => {
     const { value } = e.target;
     props.setSearch(value);
   };
   return (
-    <div className="headerContainer">
-      <div className="header">
-        <h1>Restaurant Passport 2.0</h1>
+    <div className="mainHeader">
+      <h1>Restaurant Passport 2.0</h1>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search"
+          value={props.search}
+          onChange={onSearchChange}
+        />
         <button
-          className="addBtn"
-          onClick={() => props.history.push("/add_form")}
+          onClick={() => {
+            props.setSearch("");
+          }}
         >
-          +
+          Cancel
         </button>
-        <button onClick={() => setShowSearch(!showSearch)}>Search</button>
       </div>
-      {showSearch && (
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search"
-            value={props.search}
-            onChange={onSearchChange}
-          />
-          <button
-            onClick={() => {
-              setShowSearch(false);
-              props.setSearch("");
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      )}
+      <Link to="/add_form">Add Restaurant</Link>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { passportContext } from "../contexts/passportContext";
 import RestaurantList from "./RestaurantList";
 import MainHeader from "./headers/MainHeader";
 
-const Dashboard = props => {
+const Dashboard = () => {
   const { user } = useContext(userContext);
   const { restaurantList, setRestaurantList } = useContext(passportContext);
   const [search, setSearch] = useState("");
@@ -16,6 +16,7 @@ const Dashboard = props => {
     axiosWithAuth()
       .get("/restaurants")
       .then(res => {
+        console.log(res.data);
         setRestaurantList(res.data);
       })
       .catch(err => console.log("Error fetching: ", err));
@@ -25,7 +26,7 @@ const Dashboard = props => {
     <>
       <MainHeader search={search} setSearch={setSearch} />
       <div className="dashboardContainer">
-        <p>{user}</p>
+        <h3 className="welcomeBack">{user}</h3>
         <RestaurantList
           restaurantList={restaurantList}
           setRestaurantList={setRestaurantList}

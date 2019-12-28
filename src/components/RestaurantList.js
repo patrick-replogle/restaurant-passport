@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import RestaurantCard from "./RestaurantCard";
+import RestaurantLink from "./RestaurantLink";
 
 const Restaurantlist = ({
   search,
@@ -22,7 +22,7 @@ const Restaurantlist = ({
     <div className="restarauntListContainer">
       {dynamicArray.length < 1 && <h2>Add Some Restaurants!</h2>}
       {dynamicArray.map(restaurant => {
-        return <RestaurantCard restaurant={restaurant} key={restaurant.id} />;
+        return <RestaurantLink restaurant={restaurant} key={restaurant.id} />;
       })}
     </div>
   );

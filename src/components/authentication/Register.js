@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+import Footer from "../Footer";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import AuthenticationHeader from "../headers/AuthenticationHeader";
 
@@ -44,7 +45,7 @@ const Register = props => {
   if (isLoading) {
     return (
       <div className="loading">
-        <CircularProgress color="secondary" />
+        <CircularProgress color="primary" size="150px" />
       </div>
     );
   } else {
@@ -123,15 +124,27 @@ const Register = props => {
               <span>
                 By signing up, you agree to Restaurant Passports's{" "}
                 <font color="FF4081">
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="www.yelp.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Terms of Service
                   </a>
                   ,{" "}
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="www.yelp.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Privacy Policy
                   </a>{" "}
                   <font color="757575">and</font>{" "}
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="www.yelp.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Cookie Policy
                   </a>
                 </font>
