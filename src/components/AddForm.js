@@ -62,7 +62,7 @@ const AddForm = props => {
           setItemToEdit({});
           setFormData(initialFormState);
           setIsLoading(false);
-          props.history.push("/dashboard");
+          props.history.push(`/restaurant/${itemToEdit.id}`);
         })
         .catch(err => {
           setIsLoading(false);

@@ -16,7 +16,6 @@ const Dashboard = () => {
     axiosWithAuth()
       .get("/restaurants")
       .then(res => {
-        console.log(res.data);
         setRestaurantList(res.data);
       })
       .catch(err => console.log("Error fetching: ", err));
