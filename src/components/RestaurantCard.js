@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { withRouter } from "react-router-dom";
 import { passportContext } from "../contexts/passportContext";
@@ -7,61 +7,70 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 const RestaurantCard = props => {
   const {
     setIsEditing,
-    setItemToEdit,
     itemToEdit,
+    setItemToEdit,
     setRestaurantList
   } = useContext(passportContext);
 
-  const fetchRestaurant = e => {
-    e.preventDefault();
-    axiosWithAuth()
-      .get("/restaurants")
-      .then(res => {
-        console.log(res);
-        setRestaurantList(res.data);
-      })
-      .catch(err => console.log("Error fetching: ", err));
-  };
+  const [restaurant, setRestaurant] = useState([]);
 
+  const id = props.match.params.id;
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/restaurants/${id}`)
+      .then(res => {
+        setRestaurant(res.data);
+      })
+      .catch(err => console.log(err));
+  }, [id]);
+
+  //delete restaurant
   const deleteRestaurant = e => {
     e.preventDefault();
     axiosWithAuth()
-      .delete(`/restaurants/${props.restaurant.id}`)
-      .then(res => {
-        console.log(res);
-        console.log(props.restaurant.id);
+      .delete(`/restaurants/${id}`)
+      .then(() => {
+        props.history.push("/dashboard");
       })
       .catch(err => {
         console.log("Error deleting: ", err);
       });
   };
 
-  const handleEdit = e => {
-    e.preventDefault();
+  //send restaurant to form for editing
+  const handleEdit = item => {
     setIsEditing(true);
-    setItemToEdit(props.restaurant);
-    console.log(itemToEdit);
+    setItemToEdit(item);
     props.history.push("/add_form");
   };
 
   return (
-    <div
-      // className={`restaurantCard${
-      //   props.restaurant.restaurant_stamped ? " stamped" : ""
-      // }`}
-      className="restaurantCard"
-    >
-      <h2>{props.restaurant.restaurant_name}</h2>
-      <p>{props.restaurant.restaurant_address}</p>
-      <p>{props.restaurant.restaurant_city}</p>
-      <p>{props.restaurant.restaurant_zip}</p>
-      <p>Tele: {props.restaurant.restaurant_phone_number}</p>
-      <p>Website: {props.restaurant.restaurant_website}</p>
-      <p>Rating: {props.restaurant.restaurant_rating}</p>
-      <p>Notes: {props.restaurant.restaurant_notes}</p>
-      <button onClick={deleteRestaurant}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
-    </div>
+    <>
+      {restaurant.map(res => {
+        return (
+          <div className="restaurantCard" key={res.id}>
+            <h2>{res.restaurant_name}</h2>
+            <p>{res.restaurant_address}</p>
+            <p>{res.restaurant_city}</p>
+            <p>{res.restaurant_zip}</p>
+            <p>Tele: {res.restaurant_phone_number}</p>
+            <p>Website: {res.restaurant_website}</p>
+            <p>Rating: {res.restaurant_rating}</p>
+            <p>Notes: {res.restaurant_notes}</p>
+            <button onClick={deleteRestaurant}>Delete</button>
+            <button
+              onClick={e => {
+                e.preventDefault();
+                handleEdit(res);
+              }}
+            >
+              Edit
+            </button>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

@@ -73,6 +73,7 @@ const AddForm = props => {
       axiosWithAuth()
         .post("/restaurants", formData)
         .then(res => {
+          console.log(res.data);
           setIsLoading(false);
           setFormData(initialFormState);
           props.history.push("/dashboard");
@@ -95,75 +96,87 @@ const AddForm = props => {
     return (
       <div className="addFormContainer">
         <h2>Add or Edit a Passport Entry</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="addFormName">Name</label>
-          <input
-            type="text"
-            name="restaurant_name"
-            id="addFormName"
-            onChange={handleChange}
-            value={formData.restaurant_name}
-            placeholder="name"
-            required
-          />
+        <form className="addForm" onSubmit={handleSubmit}>
+          <div className="formColumn">
+            <label htmlFor="addFormName">Name</label>
+            <input
+              type="text"
+              name="restaurant_name"
+              id="addFormName"
+              onChange={handleChange}
+              value={formData.restaurant_name}
+              placeholder="name"
+              required
+            />
+          </div>
 
-          <label htmlFor="addFormAddress">Address</label>
-          <input
-            type="text"
-            name="restaurant_address"
-            id="addFormAddress"
-            onChange={handleChange}
-            value={formData.restaurant_address}
-            placeholder="address"
-            required
-          />
+          <div className="formColumn">
+            <label htmlFor="addFormAddress">Address</label>
+            <input
+              type="text"
+              name="restaurant_address"
+              id="addFormAddress"
+              onChange={handleChange}
+              value={formData.restaurant_address}
+              placeholder="address"
+              required
+            />
+          </div>
 
-          <label htmlFor="addFormCity">City</label>
-          <input
-            type="text"
-            name="restaurant_city"
-            id="addFormCity"
-            onChange={handleChange}
-            value={formData.restaurant_city}
-            placeholder="city"
-            required
-          />
+          <div className="formColumn">
+            <label htmlFor="addFormCity">City</label>
+            <input
+              type="text"
+              name="restaurant_city"
+              id="addFormCity"
+              onChange={handleChange}
+              value={formData.restaurant_city}
+              placeholder="city"
+              required
+            />
+          </div>
 
-          <label htmlFor="addFormZip">Zip Code</label>
-          <input
-            type="text"
-            name="restaurant_zip"
-            id="addFormZip"
-            onChange={handleChange}
-            value={formData.restaurant_zip}
-            placeholder="zip code"
-            required
-          />
+          <div className="formColumn">
+            <label htmlFor="addFormZip">Zip Code</label>
+            <input
+              type="text"
+              name="restaurant_zip"
+              id="addFormZip"
+              onChange={handleChange}
+              value={formData.restaurant_zip}
+              placeholder="zip code"
+              required
+            />
+          </div>
 
-          <label htmlFor="addFormPhone">Phone #</label>
-          <input
-            type="tel"
-            name="restaurant_phone_number"
-            id="addFormPhone"
-            onChange={handleChange}
-            value={formData.restaurant_phone_number}
-            placeholder="phone number"
-            required
-          />
+          <div className="formColumn">
+            <label htmlFor="addFormPhone">Phone #</label>
+            <input
+              type="tel"
+              name="restaurant_phone_number"
+              id="addFormPhone"
+              onChange={handleChange}
+              value={formData.restaurant_phone_number}
+              placeholder="phone number"
+              required
+            />
+          </div>
 
-          <label htmlFor="addFormWebsite">Website</label>
-          <input
-            type="text"
-            name="restaurant_website"
-            id="addFormWebsite"
-            onChange={handleChange}
-            value={formData.restaurant_website}
-            placeholder="url"
-            required
-          />
+          <div className="formColumn">
+            <label htmlFor="addFormWebsite">Website</label>
+            <input
+              type="text"
+              name="restaurant_website"
+              id="addFormWebsite"
+              onChange={handleChange}
+              value={formData.restaurant_website}
+              placeholder="url"
+              required
+            />
+          </div>
 
-          <div className="ratingDiv">
-            <label htmlFor="addFormRating">Rating</label>
+          <div className="formRow">
+            <label htmlFor="addFormRating">Your Rating</label>
             <select
               type="select"
               name="restaurant_rating"
@@ -179,21 +192,22 @@ const AddForm = props => {
               <option value={5}>5</option>
             </select>
           </div>
-          <label htmlFor="addFormNotes">Notes</label>
-          <input
-            type="textarea"
-            name="restaurant_notes"
-            id="addFormNotes"
-            onChange={handleChange}
-            value={formData.restaurant_notes}
-            placeholder="notes"
-            required
-          />
 
-          <div className="ratingDiv">
-            <label htmlFor="addFormStamped">
-              Have You Visited This Restaurant?
-            </label>
+          <div className="formColumn">
+            <label htmlFor="addFormNotes">Notes</label>
+            <input
+              type="textarea"
+              name="restaurant_notes"
+              id="addFormNotes"
+              onChange={handleChange}
+              value={formData.restaurant_notes}
+              placeholder="notes"
+              required
+            />
+          </div>
+
+          <div className="formRow">
+            <label htmlFor="addFormStamped">Have You Eaten here?</label>
             <input
               type="checkbox"
               name="restaurant_stamped"
@@ -202,26 +216,29 @@ const AddForm = props => {
               value={formData.restaurant_stamped}
             />
           </div>
-          <button>Submit</button>
-          <button
-            onClick={() => {
-              setFormData(initialFormState);
-              setIsEditing(false);
-              setItemToEdit({});
-            }}
-          >
-            Reset
-          </button>
-          <button
-            onClick={() => {
-              setFormData(initialFormState);
-              setIsEditing(false);
-              setItemToEdit({});
-              props.history.push("/dashboard");
-            }}
-          >
-            Cancel
-          </button>
+
+          <div className="formBtns">
+            <button>Submit</button>
+            <button
+              onClick={() => {
+                setFormData(initialFormState);
+                setIsEditing(false);
+                setItemToEdit({});
+              }}
+            >
+              Reset
+            </button>
+            <button
+              onClick={() => {
+                setFormData(initialFormState);
+                setIsEditing(false);
+                setItemToEdit({});
+                props.history.push("/dashboard");
+              }}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
         {error && <h2>{error}</h2>}
       </div>
