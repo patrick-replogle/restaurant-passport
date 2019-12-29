@@ -57,12 +57,14 @@ const RestaurantCard = props => {
       {restaurant.map(res => {
         return (
           <div className="restaurantCard" key={res.id}>
-            <h2>{res.restaurant_name}</h2>
-            <p>{res.restaurant_address}</p>
-            <p>{res.restaurant_city}</p>
-            <p>{res.restaurant_zip}</p>
-            <p>Tele: {res.restaurant_phone_number}</p>
-            <p>Website: {res.restaurant_website}</p>
+            <div className="cardAddress">
+              <h2>{res.restaurant_name}</h2>
+              <p>{res.restaurant_address}</p>
+              <p>{res.restaurant_city}</p>
+              <p>{res.restaurant_zip}</p>
+              <p>Tele: {res.restaurant_phone_number}</p>
+              <p>Website: {res.restaurant_website}</p>
+            </div>
             <div className="ratingDiv">
               {displayRatings(res.restaurant_rating).map(cv => {
                 return <Emoji label="star" symbol="⭐" />;

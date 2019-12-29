@@ -307,6 +307,9 @@ a {
   margin-left: 20px;
   text-align: left;
   background: white;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .restaurantLink h2 {
@@ -323,6 +326,7 @@ a {
   display: flex;
   justify-content: flex-start;
   margin-left: 15px;
+  font-size: 2rem;
 }
 
 /* restaurant card style */
@@ -331,7 +335,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 .restaurantCard {
   display: flex;
@@ -343,16 +346,26 @@ a {
   margin: 40px 20px;
   text-align: left;
   background: white;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .restaurantCard .ratingDiv {
   display: flex;
   justify-content: flex-start;
   margin-left: 15px;
+  margin-top: 10px;
+  font-size: 2.5rem;
 }
 
 .restaurantCard h2 {
   font-size: 2.5rem;
+  margin-left: 15px;
+}
+
+.restaurantCard .cardAddress p {
+  margin: -1px 0;
   margin-left: 15px;
 }
 
