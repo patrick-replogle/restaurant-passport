@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withRouter } from "react-router-dom";
 
+import FormHeader from "./headers/FormHeader";
 import { passportContext } from "../contexts/passportContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
@@ -72,8 +73,7 @@ const AddForm = props => {
     } else {
       axiosWithAuth()
         .post("/restaurants", formData)
-        .then(res => {
-          console.log(res.data);
+        .then(() => {
           setIsLoading(false);
           setFormData(initialFormState);
           props.history.push("/dashboard");
@@ -89,12 +89,13 @@ const AddForm = props => {
   if (isLoading) {
     return (
       <div className="loading">
-        <CircularProgress color="secondary" />
+        <CircularProgress color="primary" size="100px" />
       </div>
     );
   } else {
     return (
       <div className="addFormContainer">
+        <FormHeader />
         <h2>Add or Edit a Passport Entry</h2>
         <form className="addForm" onSubmit={handleSubmit}>
           <div className="formColumn">

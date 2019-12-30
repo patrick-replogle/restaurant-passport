@@ -45,7 +45,7 @@ const Login = props => {
   if (isLoading) {
     return (
       <div className="loading">
-        <CircularProgress color="primary" size="150px" />
+        <CircularProgress color="primary" size="100px" />
       </div>
     );
   } else {

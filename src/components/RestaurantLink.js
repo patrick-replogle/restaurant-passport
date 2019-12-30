@@ -20,8 +20,8 @@ const RestaurantLink = props => {
       <Link to={`/restaurant/${props.restaurant.id}`}>
         <h2>{props.restaurant.restaurant_name}</h2>
         <div className="ratingDiv">
-          {ratings.map(cv => {
-            return <Emoji label="star" symbol="⭐" />;
+          {ratings.map(() => {
+            return <Emoji label="star" symbol="⭐" key={Math.random()} />;
           })}
         </div>
 

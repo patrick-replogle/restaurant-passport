@@ -40,15 +40,15 @@ span {
   height: 70px;
   justify-content: space-between;
   padding: 0 3%;
-  width: 100%;
-  margin-bottom: 30px;
+  width: 100vw;
+  margin-bottom: 20px;
   -webkit-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
   -moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 }
 
 .header h1 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-left: 30px;
 }
 
@@ -69,7 +69,7 @@ span {
   height: 70px;
   justify-content: space-evenly;
   padding: 0 3%;
-  width: 100%;
+  width: 100vw;
   margin-bottom: 30px;
   -webkit-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
   -moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
@@ -88,15 +88,21 @@ span {
   width: 300px;
   border-radius: 6px;
   margin-right: 10px;
+  outline: none;
 }
 
 .search button {
   padding: 4px 10px;
   border-radius: 6px;
   color: white;
+  padding: 6px 15px;
   background: #c41200;
   border: 1px solid white;
   font-size: 1.2rem;
+}
+
+.search button:hover {
+  opacity: 0.7;
 }
 
 .mainHeader a {
@@ -336,22 +342,27 @@ a {
   flex-direction: column;
   align-items: center;
 }
-.restaurantCard {
+.card {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 80%;
-  border-radius: 6px;
-  border: 2px solid gray;
-  margin: 40px 20px;
-  text-align: left;
+  flex-direction: row;
+  width: 70%;
   background: white;
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 8px 6px -6px black;
+  border-radius: 6px;
+  border: 2px solid gray;
+  margin: 40px 20px;
+}
+.cardLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  text-align: left;
 }
 
-.restaurantCard .ratingDiv {
+.cardLeft .ratingDiv {
   display: flex;
   justify-content: flex-start;
   margin-left: 15px;
@@ -359,30 +370,51 @@ a {
   font-size: 2.5rem;
 }
 
-.restaurantCard h2 {
+.cardLeft h2 {
   font-size: 2.5rem;
   margin-left: 15px;
 }
 
-.restaurantCard .cardAddress p {
-  margin: -1px 0;
+.cardAddress p {
+  margin: -0.5px 0;
   margin-left: 15px;
 }
 
-.restaurantCard p {
+.cardLeft p {
   font-size: 1.8rem;
   margin-left: 15px;
 }
 
-.restaurantCard button {
+.cardContact {
+  margin-top: 10px;
+}
+
+.cardContact p {
+  margin: -0.5px 0;
+  margin-left: 15px;
+}
+
+.cardLeft button {
   padding: 8px 15px;
   border-radius: 6px;
   color: white;
   background: #c41200;
-  margin-left: 20px;
-  margin-bottom: 15px;
+  margin: 7px 0 15px 20px;
   border: 2px solid white;
   font-size: 1.6rem;
+}
+
+.stamped {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.stamped img {
+  width: 100px;
+  align-self: flex-end;
+  margin: 0 20px 20px 0;
 }
 
 /*Dashboard Styles */

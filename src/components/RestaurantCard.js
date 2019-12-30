@@ -5,6 +5,7 @@ import { passportContext } from "../contexts/passportContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Emoji from "./Emoji";
 import CardHeader from "./headers/CardHeader";
+import Stamped from "../img/stamped.png";
 
 const RestaurantCard = props => {
   const { setIsEditing, setItemToEdit } = useContext(passportContext);
@@ -47,7 +48,6 @@ const RestaurantCard = props => {
     for (let i = 0; i < num; i++) {
       array.push(num[i]);
     }
-    console.log(array);
     return array;
   };
 
@@ -56,36 +56,43 @@ const RestaurantCard = props => {
       <CardHeader />
       {restaurant.map(res => {
         return (
-          <div className="restaurantCard" key={res.id}>
-            <div className="cardAddress">
-              <h2>{res.restaurant_name}</h2>
-              <p>{res.restaurant_address}</p>
-              <p>{res.restaurant_city}</p>
-              <p>{res.restaurant_zip}</p>
-              <p>Tele: {res.restaurant_phone_number}</p>
-              <p>Website: {res.restaurant_website}</p>
+          <div className="card">
+            <div className="cardLeft" key={res.id}>
+              <div className="cardAddress">
+                <h2>{res.restaurant_name}</h2>
+                <p>{res.restaurant_address}</p>
+                <p>{res.restaurant_city}</p>
+                <p>{res.restaurant_zip}</p>
+              </div>
+              <div className="cardContact">
+                <p>Tele: {res.restaurant_phone_number}</p>
+                <p>Website: {res.restaurant_website}</p>
+              </div>
+
+              <div className="ratingDiv">
+                {displayRatings(res.restaurant_rating).map(() => {
+                  return <Emoji label="star" symbol="⭐" key={Math.random()} />;
+                })}
+              </div>
+              <p>Notes: {res.restaurant_notes}</p>
+              <div>
+                <button onClick={deleteRestaurant}>Delete</button>
+                <button
+                  onClick={e => {
+                    e.preventDefault();
+                    handleEdit(res);
+                  }}
+                >
+                  Edit
+                </button>
+                <button onClick={() => props.history.push("/dashboard")}>
+                  Back
+                </button>
+              </div>
             </div>
-            <div className="ratingDiv">
-              {displayRatings(res.restaurant_rating).map(cv => {
-                return <Emoji label="star" symbol="⭐" />;
-              })}
+            <div className="stamped">
+              {res.restaurant_stamped && <img src={Stamped} alt="stamped " />}
             </div>
-            <p>Notes: {res.restaurant_notes}</p>
-            <div>
-              <button onClick={deleteRestaurant}>Delete</button>
-              <button
-                onClick={e => {
-                  e.preventDefault();
-                  handleEdit(res);
-                }}
-              >
-                Edit
-              </button>
-              <button onClick={() => props.history.push("/dashboard")}>
-                Back
-              </button>
-            </div>
-            {res.restaurant_stamped && <p>stamped</p>}
           </div>
         );
       })}

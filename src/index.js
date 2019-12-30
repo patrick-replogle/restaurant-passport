@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import PassportProvider from "./providers/PassportProvider";
-import UserProvider from "./providers/UserProvider";
+import PassportProvider from "./components/providers/PassportProvider";
+import UserProvider from "./components/providers/UserProvider";
 
 ReactDOM.render(
   <UserProvider>

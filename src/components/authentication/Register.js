@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import Footer from "../Footer";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import AuthenticationHeader from "../headers/AuthenticationHeader";
 
@@ -45,7 +44,7 @@ const Register = props => {
   if (isLoading) {
     return (
       <div className="loading">
-        <CircularProgress color="primary" size="150px" />
+        <CircularProgress color="primary" size="100px" />
       </div>
     );
   } else {
