@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { passportContext } from "../contexts/passportContext";
+import { passportContext } from "../../contexts/passportContext";
 
 const PassportProvider = ({ children }) => {
   const [restaurantList, setRestaurantList] = useState([]);

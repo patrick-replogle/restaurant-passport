@@ -22,20 +22,18 @@ const Dashboard = () => {
   }, [setRestaurantList]);
 
   return (
-    <>
+    <div className="dashboardContainer">
       <MainHeader search={search} setSearch={setSearch} />
-      <div className="dashboardContainer">
-        <h3 className="welcomeBack">{user}</h3>
-        <RestaurantList
-          restaurantList={restaurantList}
-          setRestaurantList={setRestaurantList}
-          filteredList={filteredList}
-          setFilteredList={setFilteredList}
-          search={search}
-          setSearch={setSearch}
-        />
-      </div>
-    </>
+      <h3 className="welcomeBack">{user}</h3>
+      <RestaurantList
+        restaurantList={restaurantList}
+        setRestaurantList={setRestaurantList}
+        filteredList={filteredList}
+        setFilteredList={setFilteredList}
+        search={search}
+        setSearch={setSearch}
+      />
+    </div>
   );
 };
 
