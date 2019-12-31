@@ -96,7 +96,8 @@ const AddForm = props => {
     return (
       <div className="addFormContainer">
         <FormHeader />
-        <h2>Add or Edit a Passport Entry</h2>
+        {isEditing && <h2>Edit a Passport Entry</h2>}
+        {!isEditing && <h2>Add a Passport Entry</h2>}
         <form className="addForm" onSubmit={handleSubmit}>
           <div className="formColumn">
             <label htmlFor="addFormName">Name</label>

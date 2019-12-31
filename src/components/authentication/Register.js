@@ -29,7 +29,6 @@ const Register = props => {
     axiosWithAuth()
       .post("/auth/register", registerData)
       .then(res => {
-        console.log(res);
         setisLoading(false);
         setRegisterData(initialUser);
         props.history.push("/login");

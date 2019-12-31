@@ -8,7 +8,7 @@ const MainHeader = props => {
   };
   return (
     <div className="mainHeader">
-      <h1>Restaurant Passport 2.0</h1>
+      <h1>Restaurant Passport</h1>
       <div className="search">
         <input
           type="text"
