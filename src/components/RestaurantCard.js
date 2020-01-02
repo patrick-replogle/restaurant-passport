@@ -71,7 +71,13 @@ const RestaurantCard = props => {
 
               <div className="ratingDiv">
                 {displayRatings(res.restaurant_rating).map(() => {
-                  return <Emoji label="star" symbol="⭐" key={Math.random()} />;
+                  return (
+                    <Emoji
+                      label="star"
+                      symbol="⭐"
+                      key={`${Date.now() * Math.random()}`}
+                    />
+                  );
                 })}
               </div>
               <p>Notes: {res.restaurant_notes}</p>
