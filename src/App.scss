@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -46,9 +50,17 @@ span {
   -moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 
+  @media (max-width: 580px) {
+    justify-content: space-evenly;
+  }
+
   h1 {
     font-size: 2.5rem;
     margin-left: 30px;
+
+    @media (max-width: 580px) {
+      font-size: 2rem;
+    }
   }
 
   a {
@@ -56,6 +68,17 @@ span {
     margin-right: 30px;
     font-size: 1.8rem;
     text-decoration: none;
+    @media (max-width: 580px) {
+      font-size: 1.6rem;
+    }
+  }
+  button {
+    background: #313843;
+    color: #fff;
+    border: none;
+    font-size: 1.8rem;
+    margin-right: 30px;
+    cursor: pointer;
   }
 }
 
@@ -77,37 +100,57 @@ span {
   -moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+    height: 150px;
+    justify-content: center;
+  }
+
   h1 {
     font-size: 2.5rem;
   }
 
-  a {
+  button {
+    background: #313843;
     color: #fff;
+    border: none;
     font-size: 1.8rem;
-    text-decoration: none;
+    margin-right: 30px;
+    cursor: pointer;
+
+    @media (max-width: 800px) {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
   }
 
-  .search input {
-    background: white;
-    color: black;
-    border: none;
-    padding: 8px 25px;
-    width: 300px;
-    border-radius: 6px;
-    margin-right: 10px;
-    outline: none;
-  }
-  .search button {
-    padding: 4px 10px;
-    border-radius: 6px;
-    color: white;
-    padding: 6px 15px;
-    background: #c41200;
-    border: 1px solid white;
-    font-size: 1.2rem;
-  }
-  .search button:hover {
-    opacity: 0.7;
+  .search {
+    @media (max-width: 800px) {
+      margin-top: 10px;
+    }
+
+    input {
+      background: white;
+      color: black;
+      border: none;
+      padding: 8px 25px;
+      width: 220px;
+      border-radius: 6px;
+      margin-right: 10px;
+      outline: none;
+    }
+    button {
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: white;
+      padding: 6px 15px;
+      background: #c41200;
+      border: 1px solid white;
+      font-size: 1.2rem;
+    }
+    button:hover {
+      opacity: 0.7;
+    }
   }
 }
 
@@ -144,6 +187,10 @@ span {
     h1 {
       text-align: center;
       font-size: 4.6rem;
+
+      @media (max-width: 500px) {
+        font-size: 4.2rem;
+      }
     }
     h3 {
       font-size: 2rem;
@@ -164,6 +211,10 @@ span {
       width: 400px;
       border: 2px solid white;
       cursor: pointer;
+
+      @media (max-width: 500px) {
+        width: 380px;
+      }
       &:hover {
         opacity: 0.7;
       }
@@ -178,6 +229,10 @@ span {
       width: 400px;
       border: 2px solid white;
       cursor: pointer;
+
+      @media (max-width: 500px) {
+        width: 380px;
+      }
 
       &:hover {
         opacity: 0.7;
@@ -198,6 +253,8 @@ span {
     font-size: 2.5rem;
   }
   form {
+    display: flex;
+    flex-direction: column;
     label {
       text-align: left;
       font-weight: bold;
@@ -217,10 +274,18 @@ span {
       margin-bottom: 10px;
       padding: 15px 20px;
       width: 380px;
+
+      @media (max-width: 580px) {
+        width: 300px;
+      }
     }
   }
   .termsOfServiceDiv {
     width: 380px;
+
+    @media (max-width: 580px) {
+      width: 380px;
+    }
 
     a {
       color: black;
@@ -243,6 +308,10 @@ span {
     border: 2px solid white;
     cursor: pointer;
 
+    @media (max-width: 580px) {
+      width: 340px;
+    }
+
     &:hover {
       opacity: 0.7;
     }
@@ -263,6 +332,7 @@ span {
   form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 150px;
 
     label {
       text-align: left;
@@ -279,6 +349,10 @@ span {
       margin-bottom: 10px;
       padding: 15px 20px;
       width: 380px;
+
+      @media (max-width: 580px) {
+        width: 300px;
+      }
     }
   }
 
@@ -330,9 +404,15 @@ span {
   margin-left: 20px;
   text-align: left;
   background: white;
-  -webkit-box-shadow: 0 8px 6px -6px black;
-  -moz-box-shadow: 0 8px 6px -6px black;
-  box-shadow: 0 8px 6px -6px black;
+
+  @media (max-width: 800px) {
+    width: 45%;
+  }
+
+  @media (max-width: 580px) {
+    width: 80%;
+    margin-top: 10px;
+  }
 
   a {
     text-decoration: none;
@@ -493,6 +573,10 @@ span {
       margin-bottom: 10px;
       padding: 15px 20px;
       width: 380px;
+
+      @media (max-width: 580px) {
+        width: 300px;
+      }
     }
     label {
       text-align: left;
@@ -513,6 +597,14 @@ span {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .stamped {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 50px;
+      margin-bottom: 16px;
     }
     .formBtns button {
       padding: 10px 15px;

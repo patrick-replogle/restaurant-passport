@@ -20,7 +20,6 @@ const Restaurantlist = ({
 
   return (
     <div className="restarauntListContainer">
-      {dynamicArray.length < 1 && <h2>Add Some Restaurants!</h2>}
       {dynamicArray.map(restaurant => {
         return <RestaurantLink restaurant={restaurant} key={restaurant.id} />;
       })}

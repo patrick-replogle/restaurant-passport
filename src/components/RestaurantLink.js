@@ -25,7 +25,13 @@ const RestaurantLink = props => {
         <h2>{props.restaurant.restaurant_name}</h2>
         <div className="ratingDiv">
           {ratings.map(() => {
-            return <Emoji label="star" symbol="⭐" key={Math.random()} />;
+            return (
+              <Emoji
+                label="star"
+                symbol="⭐"
+                key={`${Date.now() * Math.random()}`}
+              />
+            );
           })}
         </div>
         <div>

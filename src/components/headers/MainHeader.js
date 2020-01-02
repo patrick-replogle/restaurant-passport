@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withRouter, Link } from "react-router-dom";
 
+import { passportContext } from "../../contexts/passportContext";
+
 const MainHeader = props => {
+  const { setItemToEdit, setIsEditing } = useContext(passportContext);
   const onSearchChange = e => {
     const { value } = e.target;
     props.setSearch(value);
@@ -24,7 +27,15 @@ const MainHeader = props => {
           Cancel
         </button>
       </div>
-      <Link to="/add_form">Add Restaurant</Link>
+      <button
+        onClick={() => {
+          setItemToEdit({});
+          setIsEditing(false);
+          props.history.push("/add_form");
+        }}
+      >
+        Add Restaurant
+      </button>
     </div>
   );
 };

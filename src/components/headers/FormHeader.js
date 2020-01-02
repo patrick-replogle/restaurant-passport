@@ -1,15 +1,26 @@
-import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import React, { useContext } from "react";
 
-const MainHeader = () => {
+import { passportContext } from "../../contexts/passportContext";
+import { withRouter } from "react-router-dom";
+
+const FormHeader = props => {
+  const { setIsEditing, setItemToEdit } = useContext(passportContext);
   return (
     <nav className="header">
       <h1>Restaurant Passport</h1>
       <div>
-        <Link to="/dashboard">Home</Link>
+        <button
+          onClick={() => {
+            setItemToEdit({});
+            setIsEditing(false);
+            props.history.push("/dashboard");
+          }}
+        >
+          Home
+        </button>
       </div>
     </nav>
   );
 };
 
-export default withRouter(MainHeader);
+export default withRouter(FormHeader);
