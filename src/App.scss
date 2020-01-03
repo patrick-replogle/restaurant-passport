@@ -127,6 +127,7 @@ span {
   .search {
     @media (max-width: 800px) {
       margin-top: 10px;
+      margin-left: 60px;
     }
 
     input {
@@ -506,17 +507,26 @@ span {
         margin: -0.5px 0;
         margin-left: 15px;
       }
-      button {
-        padding: 8px 15px;
-        border-radius: 6px;
-        color: white;
-        background: #c41200;
-        margin: 7px 0 15px 20px;
-        border: 2px solid white;
-        font-size: 1.6rem;
 
-        &:hover {
-          opacity: 0.7;
+      .cardBtnsContainer {
+        display: flex;
+
+        @media (max-width: 600px) {
+          flex-direction: column;
+        }
+
+        button {
+          padding: 8px 15px;
+          border-radius: 6px;
+          color: white;
+          background: #c41200;
+          margin: 7px 0 15px 20px;
+          border: 2px solid white;
+          font-size: 1.6rem;
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
     }
@@ -530,6 +540,10 @@ span {
         width: 100px;
         align-self: flex-end;
         margin: 0 20px 20px 0;
+
+        @media (max-width: 600px) {
+          width: 130px;
+        }
       }
     }
   }

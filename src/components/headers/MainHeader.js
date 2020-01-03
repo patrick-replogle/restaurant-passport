@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import { passportContext } from "../../contexts/passportContext";
 
