@@ -81,7 +81,7 @@ const RestaurantCard = props => {
                 })}
               </div>
               <p>Notes: {res.restaurant_notes}</p>
-              <div>
+              <div className="cardBtnsContainer">
                 <button onClick={deleteRestaurant}>Delete</button>
                 <button
                   onClick={e => {

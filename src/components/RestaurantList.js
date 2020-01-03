@@ -6,7 +6,8 @@ const Restaurantlist = ({
   search,
   restaurantList,
   filteredList,
-  setFilteredList
+  setFilteredList,
+  isLoading
 }) => {
   useEffect(() => {
     setFilteredList(
@@ -20,6 +21,7 @@ const Restaurantlist = ({
 
   return (
     <div className="restarauntListContainer">
+      {!isLoading && restaurantList.length < 1 && <h2>Add Some Restaurants</h2>}
       {dynamicArray.map(restaurant => {
         return <RestaurantLink restaurant={restaurant} key={restaurant.id} />;
       })}
