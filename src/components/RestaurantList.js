@@ -19,14 +19,21 @@ const Restaurantlist = ({
 
   const dynamicArray = filteredList.length ? filteredList : restaurantList;
 
-  return (
-    <div className="restarauntListContainer">
-      {!isLoading && restaurantList.length < 1 && <h2>Add Some Restaurants</h2>}
-      {dynamicArray.map(restaurant => {
-        return <RestaurantLink restaurant={restaurant} key={restaurant.id} />;
-      })}
-    </div>
-  );
+  if (!isLoading && restaurantList.length < 1) {
+    return (
+      <div className="restarauntListContainer">
+        <h2>Add Some Passport Entries!</h2>
+      </div>
+    );
+  } else {
+    return (
+      <div className="restarauntListContainer">
+        {dynamicArray.map(restaurant => {
+          return <RestaurantLink restaurant={restaurant} key={restaurant.id} />;
+        })}
+      </div>
+    );
+  }
 };
 
 export default Restaurantlist;
