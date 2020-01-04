@@ -5,16 +5,13 @@ import Table from "../img/tableset.jpg";
 
 const RestaurantLink = props => {
   //create an array to display the correct number of stars based off of rating
-  const displayRatings = () => {
+  const ratingsArray = () => {
     const array = [];
     for (let i = 0; i < props.restaurant.restaurant_rating; i++) {
-      array.push(props.restaurant.restaurant_rating[i]);
+      array.push(Number([i]));
     }
     return array;
   };
-
-  //assign the results of displayRatings so it can be mapped over
-  const ratings = displayRatings();
 
   return (
     <div className="restaurantLink">
@@ -24,7 +21,7 @@ const RestaurantLink = props => {
         </div>
         <h2>{props.restaurant.restaurant_name}</h2>
         <div className="ratingDiv">
-          {ratings.map(() => {
+          {ratingsArray().map(() => {
             return (
               <Emoji
                 label="star"
