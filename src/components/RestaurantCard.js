@@ -46,7 +46,7 @@ const RestaurantCard = props => {
   const displayRatings = num => {
     const array = [];
     for (let i = 0; i < num; i++) {
-      array.push(num[i]);
+      array.push(Number([i]));
     }
     return array;
   };
