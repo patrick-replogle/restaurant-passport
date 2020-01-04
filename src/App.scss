@@ -256,6 +256,7 @@ span {
   form {
     display: flex;
     flex-direction: column;
+
     label {
       text-align: left;
       font-weight: bold;
@@ -285,7 +286,7 @@ span {
     width: 380px;
 
     @media (max-width: 580px) {
-      width: 380px;
+      width: 300px;
     }
 
     a {
@@ -310,7 +311,7 @@ span {
     cursor: pointer;
 
     @media (max-width: 580px) {
-      width: 340px;
+      width: 300px;
     }
 
     &:hover {
