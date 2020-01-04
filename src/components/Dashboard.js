@@ -31,7 +31,7 @@ const Dashboard = () => {
   return (
     <div className="dashboardContainer">
       <MainHeader search={search} setSearch={setSearch} />
-      <h3 className="welcomeBack">{user}</h3>
+      <div className="welcomeBack">{user}</div>
       {isLoading ? (
         <div className="loading">
           <CircularProgress color="primary" size="100px" />
