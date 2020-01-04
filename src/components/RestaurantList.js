@@ -17,9 +17,7 @@ const Restaurantlist = ({
     );
   }, [search, setFilteredList, restaurantList]);
 
-  const dynamicArray = filteredList.length
-    ? filteredList
-    : restaurantList.sort((a, b) => b.restaurant_rating - a.restaurant_rating);
+  const dynamicArray = filteredList.length ? filteredList : restaurantList;
 
   if (!isLoading && restaurantList.length < 1) {
     return (
