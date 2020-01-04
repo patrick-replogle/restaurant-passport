@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import "./App.css";
 import "./App.scss";
 
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
-import WelcomePage from "./components/authentication/WelcomePage";
+import WelcomePage from "./components/WelcomePage";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import AddForm from "./components/AddForm";
