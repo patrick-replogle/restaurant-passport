@@ -101,7 +101,7 @@ const AddForm = props => {
         ) : (
           <h2>Add a Passport Entry</h2>
         )}
-        <form className="addForm" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="formColumn">
             <label htmlFor="addFormName">Name</label>
             <input
