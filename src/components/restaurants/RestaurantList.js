@@ -28,13 +28,9 @@ const Restaurantlist = ({
   } else {
     return (
       <div className="restarauntListContainer">
-        {dynamicArray
-          .sort((a, b) => b.restaurant_rating - a.restaurant_rating)
-          .map(restaurant => {
-            return (
-              <RestaurantLink restaurant={restaurant} key={restaurant.id} />
-            );
-          })}
+        {dynamicArray.map(restaurant => {
+          return <RestaurantLink restaurant={restaurant} key={restaurant.id} />;
+        })}
       </div>
     );
   }

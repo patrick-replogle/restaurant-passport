@@ -20,7 +20,7 @@ const Dashboard = () => {
       .get("/restaurants")
       .then(res => {
         setIsLoading(false);
-        setRestaurantList(res.data);
+        setRestaurantList(res.data.reverse());
       })
       .catch(err => {
         setIsLoading(false);
