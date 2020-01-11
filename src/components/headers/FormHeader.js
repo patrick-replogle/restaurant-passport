@@ -18,6 +18,14 @@ const FormHeader = props => {
         >
           Home
         </button>
+        <button
+          onClick={() => {
+            localStorage.clear("token");
+            props.history.push("/login");
+          }}
+        >
+          Sign Out
+        </button>
       </div>
     </nav>
   );

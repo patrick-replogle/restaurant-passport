@@ -8,7 +8,7 @@ import WelcomePage from "./components/WelcomePage";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import AddForm from "./components/AddForm";
-import RestaurantCard from "./components/RestaurantCard";
+import RestaurantCard from "./components/restaurants/RestaurantCard";
 
 function App() {
   return (

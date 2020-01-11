@@ -19,23 +19,26 @@ const MainHeader = props => {
           value={props.search}
           onChange={onSearchChange}
         />
+      </div>
+      <div>
         <button
           onClick={() => {
-            props.setSearch("");
+            setItemToEdit({});
+            setIsEditing(false);
+            props.history.push("/add_form");
           }}
         >
-          Cancel
+          Add Restaurant
+        </button>
+        <button
+          onClick={() => {
+            localStorage.clear("token");
+            props.history.push("/login");
+          }}
+        >
+          Sign Out
         </button>
       </div>
-      <button
-        onClick={() => {
-          setItemToEdit({});
-          setIsEditing(false);
-          props.history.push("/add_form");
-        }}
-      >
-        Add Restaurant
-      </button>
     </div>
   );
 };
