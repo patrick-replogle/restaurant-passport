@@ -19,6 +19,14 @@ const CardHeader = props => {
         >
           Add Restaurant
         </button>
+        <button
+          onClick={() => {
+            localStorage.clear("token");
+            props.history.push("/login");
+          }}
+        >
+          Sign Out
+        </button>
       </div>
     </nav>
   );

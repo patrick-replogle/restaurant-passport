@@ -4,7 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { userContext } from "../contexts/userContext";
 import { passportContext } from "../contexts/passportContext";
-import RestaurantList from "./RestaurantList";
+import RestaurantList from "./restaurants/RestaurantList";
 import MainHeader from "./headers/MainHeader";
 
 const Dashboard = () => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
       .get("/restaurants")
       .then(res => {
         setIsLoading(false);
-        setRestaurantList(res.data);
+        setRestaurantList(res.data.reverse());
       })
       .catch(err => {
         setIsLoading(false);

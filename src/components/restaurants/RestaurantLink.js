@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Emoji from "./Emoji";
-import Table from "../img/tableset.jpg";
+import Emoji from "../Emoji";
+import Table from "../../img/tableset.jpg";
 
 const RestaurantLink = props => {
   //create an array to display the correct number of stars based off of rating

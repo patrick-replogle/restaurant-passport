@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 
 import { withRouter } from "react-router-dom";
-import { passportContext } from "../contexts/passportContext";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import Emoji from "./Emoji";
-import CardHeader from "./headers/CardHeader";
-import Stamped from "../img/stamped.png";
+import { passportContext } from "../../contexts/passportContext";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import Emoji from "../Emoji";
+import CardHeader from "../headers/CardHeader";
+import Stamped from "../../img/stamped.png";
 
 const RestaurantCard = props => {
   const { setIsEditing, setItemToEdit } = useContext(passportContext);
@@ -82,18 +85,25 @@ const RestaurantCard = props => {
               </div>
               <p>Notes: {res.restaurant_notes}</p>
               <div className="cardBtnsContainer">
-                <button onClick={deleteRestaurant}>Delete</button>
-                <button
+                <Button
+                  size="large"
+                  onClick={deleteRestaurant}
+                  variant="contained"
+                  startIcon={<DeleteIcon />}
+                >
+                  Delete
+                </Button>
+                <Button
+                  size="large"
                   onClick={e => {
                     e.preventDefault();
                     handleEdit(res);
                   }}
+                  variant="contained"
+                  startIcon={<EditIcon />}
                 >
                   Edit
-                </button>
-                <button onClick={() => props.history.push("/dashboard")}>
-                  Back
-                </button>
+                </Button>
               </div>
             </div>
             <div className="stamped">
