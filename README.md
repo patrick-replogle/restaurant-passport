@@ -5,4 +5,4 @@ Users can register an account and login to their personal restaurant passport da
 Front End built by Patrick Replogle using React JS, Context API, and Sass.
 Back End built by Kyle Barnett.
 
-Deployed website can be found at:https://restaurant-passport-ia6ahkvrc.now.sh
+Deployed website can be found at:https://restaurant-passport-ia6ahkvrc.now.sh/
